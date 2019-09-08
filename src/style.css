@@ -1,0 +1,35 @@
+body {
+  font-family: Roboto, 'Product Sans';
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 80vw;
+  margin: auto;
+}
+.full-logo-container {
+  border: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+.scale-button > span {
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.scale-button {
+  font-size: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+  .main {
+    width: 90vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .main {
+    width: 1200px;
+  }
+}

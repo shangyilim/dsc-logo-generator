@@ -13,7 +13,7 @@ class App extends Component {
       name: ""
     };
   }
-  componentWillMount(){
+  componentDidMount(){
     WebFont.load({
       google: {
         families: ["Roboto:400","Product Sans"]
@@ -23,6 +23,7 @@ class App extends Component {
       }
     });
   }
+  
   render() {
     return (
       <div className="main">
@@ -79,6 +80,9 @@ class App extends Component {
         >
           SAVE IMAGE
         </Button>
+        <footer>
+          Made with <span role="img" aria-label="love">❤️ </span> by <a href="https://twitter.com/shanggyilim">@shanggyilim</a>. <a href="https://github.com/shangyilim/dsc-logo-generator">GitHub</a>
+        </footer>
       </div>
     );
   }

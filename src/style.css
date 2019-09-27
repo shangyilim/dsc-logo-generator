@@ -18,6 +18,14 @@ body {
   margin-right: 5px;
   vertical-align: middle;
 }
+.scale-defaultWidth {
+  font-size: 1em;
+}
+.scale-defaultWidth > span {
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
 .scale-button {
   font-size: 1em;
 }

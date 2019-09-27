@@ -92,7 +92,7 @@ class App extends Component {
                     href="https://github.com/simonpham">@simonpham</a> • <a
                     href="https://github.com/DSC-Ton-Duc-Thang-University/dsc-logo-generator">GitHub</a> 
                     &nbsp;• Modified also with <span role="img" aria-label="love">❤️ </span>by <a
-                    href="https://github.com/Wenz111">@Wenz111</a> • <a
+                    href="https://github.com/Wenz111">@Wenz11</a> • <a
                     href="https://github.com/Wenz111/dsc-logo-generator">GitHub</a>
                 </footer>
             </div>

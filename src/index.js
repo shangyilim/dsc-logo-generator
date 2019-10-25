@@ -17,9 +17,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
-    this.setState({naming_scheme: event.target.value}, () => {
-                this.drawImage();
-              });
+    this.setState({naming_scheme: event.target.value}, () => {this.drawImage();});
   }
   componentDidMount(){
     WebFont.load({
@@ -35,68 +33,77 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        <h1>DSC Lockup Generator</h1>
-        <div style={hidden}>
-          <img
-            ref={e => {
-              this.dscLogo = e;
-            }}
-            onLoad={() => {
-              this.drawImage();
-            }}
-            src="dsc_icon-01.svg"
-            alt={`DSC Icon`}
-          />
-        </div>
-        <p>Start editing to see some magic happen :)</p>
-        {this.renderScaleButton()}
-          <br></br>
-        <select defaultValue={'Select Naming Scheme'} onChange={this.handleChange}>
-            <option disabled={true}>Select Naming Scheme</option>
-            <option value="DSC">DSC</option>
-            <option value="Developer Student Clubs">Developer Student Clubs</option>
-        </select>
-        <TextField
-          label="University"
-          margin="normal"
-          onChange={e => {
-            this.setState(
-              {
-                name: e.target.value
-              },
-              () => {
-                this.drawImage();
-              }
-            );
-          }}
-        />
-        <br />
-        <canvas
-          style={hidden}
-          ref={e => {
-            this.logoCanvas = e;
-          }}
-        ></canvas>
-        <div className="full-logo-container">
-          <img
-            ref={e => {
-              this.fullLogoImg = e;
-            }}
-            alt={`DSC ${this.state.name} Logo`}
-            src={this.state.fullLogoUrl}
-          />
-        </div>
-        <Button
-          variant="contained"
-          color="primary"
-          href={this.state.fullLogoUrl}
-          download={`DSC ${this.state.name} Logo x${this.state.scale}.png`}
-        >
-          SAVE IMAGE
-        </Button>
-        <footer>
-          Made with <span role="img" aria-label="love">❤️ </span> by <a href="https://twitter.com/shanggyilim" target="_blank"  rel="noopener noreferrer">@shanggyilim</a> & <a href="https://twitter.com/kmicato" target="_blank"  rel="noopener noreferrer">@kmicato</a>. <a href="https://github.com/shangyilim/dsc-logo-generator">GitHub</a>
-        </footer>
+          <div>
+            <h1>DSC Lockup Generator</h1>
+            <div style={hidden}>
+              <img
+                ref={e => {
+                  this.dscLogo = e;
+                }}
+                onLoad={() => {
+                  this.drawImage();
+                }}
+                src="dsc_icon-01.svg"
+                alt={`DSC Icon`}
+              />
+            </div>
+            <p>Start editing to see some magic happen :)</p>
+            {this.renderScaleButton()}
+            <br></br>
+            <select defaultValue={'Select Naming Scheme'} onChange={this.handleChange}>
+                <option disabled={true}>Select Naming Scheme</option>
+                <option value="DSC">DSC</option>
+                <option value="Developer Student Clubs">Developer Student Clubs</option>
+            </select>
+            <br></br>
+            <select defaultValue={'Select Style'} onChange={this.handleChange}>
+                <option disabled={true}>Select Style</option>
+                <option value="logo_right">Logo Right</option>
+                <option value="logo_center">Logo Center</option>
+            </select>
+            <br></br>
+            <TextField
+              label="University"
+              margin="normal"
+              onChange={e => {
+                this.setState(
+                  {
+                    name: e.target.value
+                  },
+                  () => {
+                    this.drawImage();
+                  }
+                );
+              }}
+            />
+            <br />
+            <canvas
+              style={hidden}
+              ref={e => {
+                this.logoCanvas = e;
+              }}
+            ></canvas>
+            <div className="full-logo-container">
+              <img
+                ref={e => {
+                  this.fullLogoImg = e;
+                }}
+                alt={`DSC ${this.state.name} Logo`}
+                src={this.state.fullLogoUrl}
+              />
+            </div>
+            <Button
+              variant="contained"
+              color="primary"
+              href={this.state.fullLogoUrl}
+              download={`DSC ${this.state.name} Logo x${this.state.scale}.png`}
+            >
+              SAVE IMAGE
+            </Button>
+            <footer>
+              Made with <span role="img" aria-label="love">❤️ </span> by <a href="https://twitter.com/shanggyilim" target="_blank"  rel="noopener noreferrer">@shanggyilim</a> & <a href="https://twitter.com/kmicato" target="_blank"  rel="noopener noreferrer">@kmicato</a>. <a href="https://github.com/shangyilim/dsc-logo-generator">GitHub</a>
+            </footer>
+          </div>
       </div>
     );
   }

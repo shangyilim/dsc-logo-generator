@@ -15,6 +15,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "firebase-tools": "^7.12.1",
     "react-scripts": "latest"
   },
   "browserslist": {

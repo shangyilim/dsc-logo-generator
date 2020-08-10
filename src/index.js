@@ -108,7 +108,7 @@ class App extends Component {
           SAVE IMAGE
         </Button>
         <footer>
-          Made with <span role="img" aria-label="love">❤️ </span> by <a href="https://twitter.com/shanggyilim" target="_blank"  rel="noopener noreferrer">@shanggyilim</a> & <a href="https://twitter.com/kmicato" target="_blank"  rel="noopener noreferrer">@kmicato</a>. <a href="https://github.com/shangyilim/dsc-logo-generator">GitHub</a>
+          Made with <span role="img" aria-label="love">❤️ </span> by <a href="https://twitter.com/shanggyilim" target="_blank"  rel="noopener noreferrer">@shanggyilim</a>, <a href="https://twitter.com/kmicato" target="_blank"  rel="noopener noreferrer">@kmicato</a> & <a href="https://github.com/stelioslogothetis" target="_blank"  rel="noopener noreferrer">@stelioslogothetis</a>. <a href="https://github.com/shangyilim/dsc-logo-generator">GitHub</a>
         </footer>
       </div>
     );

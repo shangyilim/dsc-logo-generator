@@ -22,6 +22,15 @@ body {
   font-size: 1em;
 }
 
+.controls>div, select {
+  display:inline-block;
+  margin-right: 10px;
+}
+
+select { 
+  padding: 1px 6px;
+}
+
 @media only screen and (min-width: 768px) {
   .main {
     width: 90vw;

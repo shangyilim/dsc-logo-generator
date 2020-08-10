@@ -49,13 +49,14 @@ class App extends Component {
           />
         </div>
         <p>Start editing to see some magic happen :)</p>
+        <div className="controls">
         {this.renderScaleButton()}
-          <br></br>
         <select defaultValue={'Select Naming Scheme'} onChange={this.handleChange}>
             <option disabled={true}>Select Naming Scheme</option>
             <option value="DSC">DSC</option>
             <option value="Developer Student Clubs">Developer Student Clubs</option>
         </select>
+        </div>
         <TextField
           label="University"
           margin="normal"

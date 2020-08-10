@@ -11,15 +11,22 @@ class App extends Component {
     this.state = {
       scale: 1,
       name: "",
-      naming_scheme: ""
+      naming_scheme: "",
+      colorful: true
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
   }
-  handleChange(event) {
+  handleNameChange(event) {
     this.setState({naming_scheme: event.target.value}, () => {
                 this.drawImage();
               });
+  }
+  handleColorChange(event){
+    this.setState({colorful: event.target.value === "Colorful"}, () => {
+      this.drawImage();
+    });
   }
   componentDidMount(){
     WebFont.load({
@@ -44,17 +51,22 @@ class App extends Component {
             onLoad={() => {
               this.drawImage();
             }}
-            src="dsc_icon-01.svg"
+            src= {this.state.colorful ? "dsc_icon-01.svg" : "dsc_icon-02.svg"}
             alt={`DSC Icon`}
           />
         </div>
         <p>Start editing to see some magic happen :)</p>
         <div className="controls">
         {this.renderScaleButton()}
-        <select defaultValue={'Select Naming Scheme'} onChange={this.handleChange}>
+        <select defaultValue={'Select Naming Scheme'} onChange={this.handleNameChange}>
             <option disabled={true}>Select Naming Scheme</option>
             <option value="DSC">DSC</option>
             <option value="Developer Student Clubs">Developer Student Clubs</option>
+        </select>
+        <select defaultValue={'Select Coloration'} onChange={this.handleColorChange}>
+            <option disabled={true}>Select Coloration</option>
+            <option value="Colorful">Colorful</option>
+            <option value="Knockout">Knockout</option>
         </select>
         </div>
         <TextField
@@ -78,7 +90,7 @@ class App extends Component {
             this.logoCanvas = e;
           }}
         ></canvas>
-        <div className="full-logo-container">
+        <div className={this.state.colorful ? "full-logo-container" : "full-logo-container dark"}>
           <img
             ref={e => {
               this.fullLogoImg = e;
@@ -105,6 +117,7 @@ class App extends Component {
   drawImage() {
     const name = this.state.name;
     const naming_scheme = this.state.naming_scheme;
+    const colorful = this.state.colorful;
     const scale = this.state.scale;
     const ctx = this.logoCanvas.getContext("2d");
     ctx.font = `54px "Product Sans"`;
@@ -119,7 +132,7 @@ class App extends Component {
 
     ctx.scale(scale, scale);
     ctx.font = `94px "Product Sans"`;
-    ctx.fillStyle = "rgba(0, 0, 0, 0.54)";
+    ctx.fillStyle = colorful ? "rgb(103, 108, 114)" : "rgb(255, 255, 255)";
 
     ctx.drawImage(this.dscLogo, 20, 0, this.dscLogo.width, this.dscLogo.height);
 

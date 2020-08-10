@@ -13,6 +13,11 @@ body {
   border: 2px solid #ccc;
   margin-bottom: 10px;
 }
+
+.full-logo-container.dark {
+  background-color: #292D33;
+}
+
 .scale-button > span {
   margin-left: 5px;
   margin-right: 5px;

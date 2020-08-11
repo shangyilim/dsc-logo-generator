@@ -6,10 +6,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -20,7 +22,8 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm ci
+        npm install
         npm run build
-        ./node_modules/.bin/firebase deploy --debug --only hosting --token "${{ secrets.FIREBASE_TOKEN }}"
+        ./node_modules/.bin/firebase deploy --project dsc-logo-generator --debug --only hosting --token "$FIREBASE_TOKEN"
       env:
         CI: true

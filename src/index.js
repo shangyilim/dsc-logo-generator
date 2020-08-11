@@ -13,7 +13,7 @@ class App extends Component {
       scale: 1,
       name: "",
       naming_scheme: "DSC",
-      structure: "",
+      structure: "logo_left",
       colorful: true
     };
 

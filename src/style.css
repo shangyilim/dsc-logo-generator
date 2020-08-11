@@ -13,6 +13,11 @@ body {
   border: 2px solid #ccc;
   margin-bottom: 10px;
 }
+
+.full-logo-container.dark {
+  background-color: #292D33;
+}
+
 .scale-button > span {
   margin-left: 5px;
   margin-right: 5px;
@@ -20,6 +25,15 @@ body {
 }
 .scale-button {
   font-size: 1em;
+}
+
+.controls>div, select {
+  display:inline-block;
+  margin-right: 10px;
+}
+
+select { 
+  padding: 1px 6px;
 }
 
 @media only screen and (min-width: 768px) {

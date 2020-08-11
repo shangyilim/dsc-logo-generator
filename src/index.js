@@ -67,7 +67,7 @@ class App extends Component {
             {this.renderScaleButton()}
             <select defaultValue={this.state.structure} onChange={this.handleStructureChange}>
               <option disabled={true}>Select Style</option>
-              <option value="logo_right">Logo Right</option>
+              <option value="logo_left">Logo Left</option>
               <option value="logo_center">Logo Center</option>
             </select>
             <select defaultValue={this.state.naming_scheme} ref="naming_scheme" onChange={this.handleChange}>
@@ -138,10 +138,10 @@ class App extends Component {
 
     // measures the minimum width of the text to ensure the canvas is expanded at least by this
     // value.
-    const minimumTextWidth = naming_scheme === "DSC" ? ctx.measureText(naming_scheme + name).width :
+    const minimumTextWidth = naming_scheme === "DSC" && structure === "logo_left" ? ctx.measureText(naming_scheme + name).width :
       Math.max(ctx.measureText(name).width, ctx.measureText(naming_scheme).width);
 
-    const canvasWidth = minimumTextWidth + this.dscLogo.width + 100;
+    const canvasWidth = (structure === "logo_center" ? minimumTextWidth : minimumTextWidth + this.dscLogo.width) + 100;
 
     this.logoCanvas.setAttribute("width", canvasWidth * scale);
 
@@ -153,13 +153,13 @@ class App extends Component {
     ctx.scale(scale, scale);
     ctx.font = `94px "Product Sans"`;
     ctx.fillStyle = colorful ? "rgb(103, 108, 114)" : "rgb(255, 255, 255)";
-    let imageDX = (structure === "logo_right" || structure === "") ? 0 : (ctx.measureText("Developer Student Clubs ").width + this.dscLogo.width) / 2;
+    let imageDX = structure === "logo_center" ? (minimumTextWidth / 2 - (this.dscLogo.width / 2)) : 0;
     ctx.drawImage(this.dscLogo, imageDX, 0, this.dscLogo.width, this.dscLogo.height);
 
     //if logo center
     if (structure === "logo_center") {
-      ctx.fillText(naming_scheme, this.dscLogo.width + 40, this.dscLogo.height + 50);
-      ctx.fillText(name, this.dscLogo.width + 40, (this.dscLogo.height) * 2);
+      ctx.fillText(naming_scheme, 0, this.dscLogo.height + 50);
+      ctx.fillText(name, 0, (this.dscLogo.height) * 2);
       // this.ref.naming_scheme
     } else {
       //if DSC is selected, draw on one line

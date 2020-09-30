@@ -1,4 +1,4 @@
-# dsc-logo-generator
+# dsc-logo-generator - We'll update you soon in future.
 
 Source Code for [DSC Logo Generator](https://dsc-logo-generator.web.app)  
 

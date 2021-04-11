@@ -162,7 +162,7 @@ class App extends Component {
       ctx.fillText(name, 0, (this.dscLogo.height) * 2);
       // this.ref.naming_scheme
     } else {
-      //if DSC is selected, draw on one line
+      //if GDSC is selected, draw on one line
       if (naming_scheme === "GDSC") {
         ctx.fillText(naming_scheme + " " + name, this.dscLogo.width + 40, 110);
       } else {

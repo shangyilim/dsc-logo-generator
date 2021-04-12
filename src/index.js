@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="main">
         <div>
-          <h1>DSC Lockup Generator</h1>
+          <h1>GDSC Lockup Generator</h1>
           <div style={hidden}>
             <img
               ref={e => {
@@ -72,8 +72,8 @@ class App extends Component {
             </select>
             <select defaultValue={this.state.naming_scheme} ref="naming_scheme" onChange={this.handleChange}>
               <option disabled={true}>Select Naming Scheme</option>
-              <option value="DSC">DSC</option>
-              <option value="Developer Student Clubs">Developer Student Clubs</option>
+              <option value="GDSC">GDSC</option>
+              <option value="Google Developer Student Clubs">Google Developer Student Clubs</option>
             </select>
             <select defaultValue={this.state.coloration} onChange={this.handleColorChange}>
               <option disabled={true}>Select Coloration</option>
@@ -107,7 +107,7 @@ class App extends Component {
               ref={e => {
                 this.fullLogoImg = e;
               }}
-              alt={`DSC ${this.state.name} Logo`}
+              alt={`GDSC ${this.state.name} Logo`}
               src={this.state.fullLogoUrl}
             />
           </div>
@@ -115,7 +115,7 @@ class App extends Component {
             variant="contained"
             color="primary"
             href={this.state.fullLogoUrl}
-            download={`DSC ${this.state.name} Logo x${this.state.scale}.png`}
+            download={`GDSC ${this.state.name} Logo x${this.state.scale}.png`}
           >
             SAVE IMAGE
             </Button>
@@ -138,14 +138,14 @@ class App extends Component {
 
     // measures the minimum width of the text to ensure the canvas is expanded at least by this
     // value.
-    const minimumTextWidth = naming_scheme === "DSC" && structure === "logo_left" ? ctx.measureText(naming_scheme + name).width :
+    const minimumTextWidth = naming_scheme === "GDSC" && structure === "logo_left" ? ctx.measureText(naming_scheme + name).width :
       Math.max(ctx.measureText(name).width, ctx.measureText(naming_scheme).width);
 
     const canvasWidth = (structure === "logo_center" ? minimumTextWidth : minimumTextWidth + this.dscLogo.width) + 100;
 
     this.logoCanvas.setAttribute("width", canvasWidth * scale);
 
-    if (naming_scheme === "DSC" && structure !== "logo_center")
+    if (naming_scheme === "GDSC" && structure !== "logo_center")
       this.logoCanvas.setAttribute("height", this.dscLogo.height * scale);
     else
       this.logoCanvas.setAttribute("height", (this.dscLogo.height * 2 * scale) + 50);
@@ -162,8 +162,8 @@ class App extends Component {
       ctx.fillText(name, 0, (this.dscLogo.height) * 2);
       // this.ref.naming_scheme
     } else {
-      //if DSC is selected, draw on one line
-      if (naming_scheme === "DSC") {
+      //if GDSC is selected, draw on one line
+      if (naming_scheme === "GDSC") {
         ctx.fillText(naming_scheme + " " + name, this.dscLogo.width + 40, 110);
       } else {
         ctx.fillText(naming_scheme, this.dscLogo.width + 40, 110);

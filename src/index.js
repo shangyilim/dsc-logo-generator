@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       scale: 1,
       name: "",
-      naming_scheme: "DSC",
+      naming_scheme: "GDSC",
       structure: "logo_left",
       colorful: true
     };
